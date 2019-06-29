@@ -226,7 +226,8 @@ function analyzeFile(filename) {
 
 ### Random number generation
 
-```
+
+```js
 function yearEndEvaluation() {
   if (Math.random() > 0.5) {
     return "You get a raise!";
@@ -234,7 +235,9 @@ function yearEndEvaluation() {
     return "Better luck next year!";
   }
 }
+
 ```
+
 
 
 > It does not cause any observable side effects
@@ -460,7 +463,7 @@ const sum = (a, b) => a + b;
 ```
 And we call it with these parameters:
 
-```
+```js
 sum(3, sum(5, 8));
 
 ```
@@ -495,7 +498,7 @@ const doubleSum = (a, b) => (a + b) * 2;
 
 Now a function that subtracts values and the returns the double:
 
-```
+```js
 const doubleSubtraction = (a, b) => (a - b) * 2;
 ```
 
