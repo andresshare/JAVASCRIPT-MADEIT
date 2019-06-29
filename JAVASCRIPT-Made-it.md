@@ -54,7 +54,7 @@ const multiplyES6 = (x, y) => { return x * y };
 
 An anonymous function is a function without a name. For e.g.
 
-```
+```js
 function () {
   let message = "I don't have a name";
   console.log(message);
@@ -81,9 +81,9 @@ The closure has three scope chains
 3.    And it has access to the global variables.
 
 
-see [Example CLOUSURE](src="https://gist.github.com/andresshare/544090a7953774242fb3baa4fbba4c21.js")
+see [Example CLOUSURE] https://gist.github.com/andresshare/544090a7953774242fb3baa4fbba4c21.js"
 
-see [Example CLOUSURETWO](src="https://gist.github.com/andresshare/7cfdfb2b512f337ec6006e07d313dd06.js")
+see [Example CLOUSURETWO]"https://gist.github.com/andresshare/7cfdfb2b512f337ec6006e07d313dd06.js"
 
 we have defined a function createAdding(x), which takes a single parameter x and returns a new function. 
 
@@ -102,7 +102,7 @@ lexical environments.
   The lexical environment for a function can be thought of as a map between the variable names and their values in memory. 
   So when I write.
 
- ```
+ ```js
  function foo() {
   var a = 10;
  }
@@ -145,7 +145,7 @@ It does not cause any observable side effects
 Imagine we want to implement a function that calculates the area of a circle. 
 An impure function would receive radius as the parameter, and then calculate radius * radius * PI:
 
-```
+```js
 let PI = 3.14;
 
 const calculateArea = (radius) => radius * radius * PI;
@@ -164,7 +164,7 @@ Now imagine some mathematicians argue that the PI value is actually 42 and chang
 Our impure function will now result in 10 * 10 * 42 = 4200. 
 For the same parameter (radius = 10), we have a different result. Let's fix it!
 
-```
+```js
 let PI = 3.14;
 
 const calculateArea = (radius, pi) => radius * radius * pi;
@@ -185,13 +185,15 @@ So now we are just accessing parameters passed to the function. No external obje
 
 If our function reads external files, it’s not a pure function — the file’s contents can change.
 
+
+```js
 const charactersCounter = (text) => `Character count: ${text.length}`;
 
 function analyzeFile(filename) {
   let fileContent = open(filename);
   return charactersCounter(fileContent);
 }
-
+```
 
 ### Random number generation
 
@@ -213,7 +215,7 @@ Examples of observable side effects include modifying a global object or a param
 Now we want to implement a function to receive an integer value and return the value increased by 1.
 
 
-```
+```js
 let counter = 1;
 
 function increaseCounter(value) {
@@ -232,7 +234,7 @@ Observation: mutability is discouraged in functional programming.
 
 We are modifying the global object. But how would we make it pure? Just return the value increased by 1. Simple as that.
 
-```
+```js
 let counter = 1;
 
 const increaseCounter = (value) => value + 1;
@@ -263,7 +265,7 @@ Given a parameter C → expect the function to return value D
 A simple example would be a function to receive a collection of numbers and expect it to increment 
 each element of this collection.
 
-```
+```js
 let list = [1, 2, 3, 4, 5];
 
 const incrementNumbers = (list) => list.map(number => number + 1);
@@ -272,7 +274,7 @@ const incrementNumbers = (list) => list.map(number => number + 1);
 
 We receive the numbers array, use map incrementing each number, and return a new list of incremented numbers.
 
-```
+```js
 incrementNumbers(list); // [2, 3, 4, 5, 6]}
 ``` 
 
@@ -289,7 +291,7 @@ you can’t. Instead, you create a new object with the new value.
 In Javascript we commonly use the for loop. This next for statement has some mutable variables.
 
 
-```
+```js
 var values = [1, 2, 3, 4, 5];
 var sumOfValues = 0;
 
@@ -303,7 +305,7 @@ sumOfValues // 15
 
 For each iteration, we are changing the i and the sumOfValue state. But how do we handle mutability in iteration? Recursion!
 
-```
+```js
 let list = [1, 2, 3, 4, 5];
 let accumulator = 0;
 
@@ -339,8 +341,8 @@ Imagine we have a string, and we want to transform this string into a url slug.
 In OOP in Ruby, we would create a class, let’s say, UrlSlugify. 
 And this class will have a slugify! method to transform the string input into a url slug.
 
-``` 
-lass UrlSlugify
+```js 
+Class UrlSlugify
   attr_reader :text
   
   def initialize(text)
@@ -368,7 +370,7 @@ We can handle this mutation by doing function composition, or function chaining.
 In other words, the result of a function will be used as an input for the next function, 
 without modifying the original input string.
 
-``` 
+```js
 const string = " I will be a url slug   ";
 
 const slugify = string =>
@@ -396,7 +398,7 @@ We combine all these 4 functions and we can "slugify" our string.
 
 Let’s implement a square function:
 
-```
+```js
 const square = (n) => n * n;
 
 ```
@@ -423,7 +425,7 @@ Basically, if a function consistently yields the same result for the same input,
 
 With this concept, a cool thing we can do is to memoize the function. Imagine we have this function:
 
-``` 
+```js
 const sum = (a, b) => a + b;
 
 ```
@@ -435,7 +437,7 @@ sum(3, sum(5, 8));
 ```
 The sum(5, 8) equals 13. This function will always result in 13. So we can do this:
 
-```
+```js
 sum(3, 13);
 ``` 
 
@@ -458,7 +460,7 @@ The idea is to treat functions as values and pass functions like data. This way 
 
 Imagine we have a function that sums two values and then doubles the value. Something like this:
 
-```
+```js
 const doubleSum = (a, b) => (a + b) * 2;
 ```
 
@@ -472,7 +474,7 @@ These functions have similar logic, but the difference is the operators function
 If we can treat functions as values and pass these as arguments, 
 we can build a function that receives the operator function and use it inside our function. Let’s build it!
 
-```
+```js
 const sum = (a, b) => a + b;
 const subtraction = (a, b) => a - b;
 
@@ -517,7 +519,7 @@ An imperative way to do it with Javascript is to:
 
 
 
-``` 
+```js 
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var evenNumbers = [];
 
@@ -534,7 +536,7 @@ console.log(evenNumbers); // (6) [0, 2, 4, 6, 8, 10]
 We can also use the filter higher order function to receive the even function, and return a list of even numbers:
 
 
-```
+```js
 const even = n => n % 2 == 0;
 const listOfNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 listOfNumbers.filter(even); // [0, 2, 4, 6, 8, 10]
@@ -545,7 +547,7 @@ The problem idea is to filter a given array of integers and output only those va
 
 an imperative Javascript solution to this problem is something like:
 
-```
+```js
 var filterArray = function(x, coll) {
   var resultArray = [];
 
@@ -571,7 +573,7 @@ But we want a more declarative way to solve this problem, and using the filter h
 
 A declarative Javascript solution would be something like this:
 
-```
+```js
 function smaller(number) {
   return number < this;
 }
@@ -593,7 +595,7 @@ this will be the second parameter in the filter function. In this case, 3 (the x
 We can also do this with maps. Imagine we have a map of people with their name and age.
 
 
-```
+```js
 let people = [
   { name: "TK", age: 26 },
   { name: "Kaio", age: 10 },
@@ -633,7 +635,7 @@ from each element in the people collection.
 
 In a imperative Javascript way, it would be:
 
-```
+```js
 var people = [
   { name: "TK", age: 26 },
   { name: "Kaio", age: 10 },
@@ -653,7 +655,7 @@ console.log(peopleSentences); // ['TK is 26 years old', 'Kaio is 10 years old', 
 
 In a declarative Javascript way, it would be:
 
-```
+```js
 const makeSentence = (person) => `${person.name} is ${person.age} years old`;
 
 const peopleSentences = (people) => people.map(makeSentence);
@@ -672,7 +674,7 @@ For example, the input [1, 2, 3, -4, 5]needs the output to be [1, 2, 3, 4, 5]. T
 A simple solution would be an in-place update for each collection value.
 
 
-```
+```js
 var values = [1, 2, 3, -4, 5];
 
 for (var i = 0; i < values.length; i++) {
@@ -694,7 +696,7 @@ Second, why not use map here to "transform" all data?
 My first idea was to test the Math.abs function to handle only one value.
 
 
-```
+```js
 Math.abs(-1); // 1
 Math.abs(1); // 1
 Math.abs(-2); // 2
@@ -710,7 +712,7 @@ to pass as an argument to the map function. Do you remember that a higher order
 function can receive a function as an argument and use it? Yes, map can do it!
 
 
-```
+```js
 let values = [1, 2, 3, -4, 5];
 
 const updateListMap = (values) => values.map(Math.abs);
@@ -732,7 +734,7 @@ A common example people talk about is to get the total amount of an order. Imagi
 
 In imperative way, we would iterate the order list and sum each product amount to the total amount.
 
-```
+```js
 var orders = [
   { productTitle: "Product 1", amount: 10 },
   { productTitle: "Product 2", amount: 30 },
@@ -752,7 +754,7 @@ console.log(totalAmount); // 120
 Using reduce, we can build a function to handle the amount sum and pass it as an argument to the reduce function.
 
 
-```
+```js
 let shoppingCart = [
   { productTitle: "Product 1", amount: 10 },
   { productTitle: "Product 2", amount: 30 },
@@ -774,7 +776,7 @@ The getTotalAmount function is used to reduce the shoppingCart by using the sumA
 
 Another way to get the total amount is to compose map and reduce. What do I mean by that? We can use map to transform the shoppingCart into a collection of amount values, and then just use the reduce function with sumAmount function.
 
-``` 
+```js
 const getAmount = (order) => order.amount;
 const sumAmount = (acc, amount) => acc + amount;
 
@@ -794,7 +796,7 @@ We took a look at how each higher order function works. I want to show you an ex
 
 Talking about shopping cart, imagine we have this list of products in our order:
 
-```
+```js
 let shoppingCart = [
   { productTitle: "Functional Programming", type: "books", amount: 10 },
   { productTitle: "Kindle", type: "eletronics", amount: 30 },
@@ -809,7 +811,7 @@ We want the total amount of all books in our shopping cart. Simple as that. The 
     combine all items by adding them up with reduce
 
 
-```
+```js
 let shoppingCart = [
   { productTitle: "Functional Programming", type: "books", amount: 10 },
   { productTitle: "Kindle", type: "eletronics", amount: 30 },
@@ -831,7 +833,7 @@ function getTotalAmount(shoppingCart) {
 getTotalAmount(shoppingCart); // 70
 ```
 
-///https://medium.com/the-renaissance-developer/concepts-of-functional-programming-in-javascript-6bc84220d2aa
+> //https://medium.com/the-renaissance-developer/concepts-of-functional-programming-in-javascript-6bc84220d2aa
 
 
 
