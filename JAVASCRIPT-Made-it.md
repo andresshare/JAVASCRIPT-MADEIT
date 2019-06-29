@@ -82,8 +82,38 @@ The closure has three scope chains
 
 
 see  [CLOUSURE]("https://gist.github.com/andresshare/7cfdfb2b512f337ec6006e07d313dd06.js")
-see  [CLOUSURETWO]"src="https://gist.github.com/andresshare/7cfdfb2b512f337ec6006e07d313dd06.js")
+```js
+function showMyName() {
+  var name = 'Ajay Singh';
+  function displayMyName() {
+    alert(name);
+  }
+  return displayMyName;
+}
 
+var callFunc = showMyName();
+callFunc();
+
+```
+
+
+see  [CLOUSURETWO]"
+
+```js
+function createAdding(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var adding5 = createAdding(5);
+var adding10 = createAdding(10);
+
+alert(adding5(2));  // 7
+alert(adding10(2)); // 12
+
+
+```
 we have defined a function createAdding(x), which takes a single parameter x and returns a new function. 
 
 The function it returns takes a single parameter y and returns the sum of x and y.
@@ -340,7 +370,7 @@ Imagine we have a string, and we want to transform this string into a url slug.
 In OOP in Ruby, we would create a class, let’s say, UrlSlugify. 
 And this class will have a slugify! method to transform the string input into a url slug.
 
-```js 
+```ruby 
 Class UrlSlugify
   attr_reader :text
   
