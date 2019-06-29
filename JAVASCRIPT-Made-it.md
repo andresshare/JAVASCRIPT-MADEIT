@@ -2,7 +2,7 @@
 
 > function is a piece of program wrapped in a value
 
-```
+```js
 function calculateCircumference(radius) {
   return 2 * Math.PI * radius;
 }
@@ -17,7 +17,7 @@ console.log(Math.PI);
 An anonymous function is a function that was declared without any named identifier to refer to it
 
 
-```
+```js
 // returns the factorial of 10.
 alert((function(n) {
   return !(n > 1)
@@ -34,7 +34,7 @@ alert((function(n) {
 Are a more concise syntax for writing function expressions. They utilize a new token
 Arrow functions make our code more concise, and simplify function scoping and the this keyword
 
-```
+```js
 
 // (param1, param2, paramN) => expression
 
@@ -81,9 +81,8 @@ The closure has three scope chains
 3.    And it has access to the global variables.
 
 
-see [Example CLOUSURE] https://gist.github.com/andresshare/544090a7953774242fb3baa4fbba4c21.js"
-
-see [Example CLOUSURETWO]"https://gist.github.com/andresshare/7cfdfb2b512f337ec6006e07d313dd06.js"
+see  [CLOUSURE]("https://gist.github.com/andresshare/7cfdfb2b512f337ec6006e07d313dd06.js")
+see  [CLOUSURETWO]"src="https://gist.github.com/andresshare/7cfdfb2b512f337ec6006e07d313dd06.js")
 
 we have defined a function createAdding(x), which takes a single parameter x and returns a new function. 
 
@@ -406,7 +405,7 @@ const square = (n) => n * n;
 
 This pure function will always have the same output, given the same input.
 
-```
+```js
 square(2); // 4
 square(2); // 4
 square(2); // 4
@@ -605,7 +604,7 @@ let people = [
 ```
 And we want to filter only people over a specified value of age, in this example people who are more than 21 years old.
 
-``` 
+```js 
 const olderThan21 = person => person.age > 21;
 const overAge = people => people.filter(olderThan21);
 overAge(people); // [{ name: 'TK', age: 26 }, { name: 'Kazumi', age: 30 }]
